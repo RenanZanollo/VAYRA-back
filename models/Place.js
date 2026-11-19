@@ -2,8 +2,6 @@ import mongoose from "mongoose";
 
 const { Schema } = mongoose;
 
-// Cada foto é um "sub-documento": fica guardada dentro do lugar.
-// _id: false porque a foto não precisa de id próprio.
 const PhotoSchema = new Schema(
   {
     url: { type: String, required: [true, "A url da foto é obrigatória"], trim: true },
@@ -18,7 +16,7 @@ const PlaceSchema = new Schema(
       type: String,
       required: [true, "O nome do lugar é obrigatório"],
       trim: true,
-      unique: true, // não deixa cadastrar dois lugares com o mesmo nome
+      unique: true,
     },
     lat: {
       type: Number,
